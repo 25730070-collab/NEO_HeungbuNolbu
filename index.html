@@ -147,6 +147,12 @@ html, body {
 /* 스캔라인 */
 /* 표지 스캔라인 제거 */
 
+/* 표지 배경 영상 */
+#cover-video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 0; pointer-events: none;
+}
+
 /* 좌상단 학번·이름 */
 #cover-id {
   position: absolute; top: 36px; left: 48px; z-index: 10;
@@ -158,25 +164,25 @@ html, body {
 }
 .cid-tag {
   font-size: 8px; font-weight: 700; letter-spacing: 3px;
-  color: rgba(74,143,212,0.6); margin-bottom: 6px;
+  color: rgba(180,210,255,0.85); margin-bottom: 6px;
 }
 .cid-box {
   display: flex; align-items: center; gap: 0;
-  background: rgba(255,255,255,0.65);
+  background: rgba(255,255,255,0.18);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(74,143,212,0.14);
+  border: 1px solid rgba(74,143,212,0.35);
   border-radius: 5px; overflow: hidden;
 }
 .cid-num {
   padding: 7px 14px;
   font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
-  color: #4A8FD4;
-  border-right: 1px solid rgba(74,143,212,0.1);
+  color: #7EC8FF;
+  border-right: 1px solid rgba(74,143,212,0.25);
 }
 .cid-name {
   padding: 7px 14px;
   font-size: 13px; font-weight: 700;
-  color: #1A2C44; letter-spacing: 0.5px;
+  color: #FFFFFF; letter-spacing: 0.5px;
 }
 
 /* 우상단 시스템 상태 */
@@ -188,7 +194,7 @@ html, body {
 .csys-line {
   display: flex; align-items: center; gap: 7px;
   font-size: 8px; font-weight: 700; letter-spacing: 2.5px;
-  color: #7A8EA8;
+  color: rgba(200,220,255,0.85);
 }
 .csys-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
 .csys-dot.blue     { background: #4A8FD4; box-shadow: 0 0 6px rgba(74,143,212,0.7); animation: dotPulse 2s ease-in-out infinite; }
@@ -213,7 +219,7 @@ html, body {
 
 .cover-eyebrow {
   font-size: 9px; font-weight: 700; letter-spacing: 5px;
-  color: rgba(74,143,212,0.75); margin-bottom: 28px;
+  color: rgba(140,200,255,0.9); margin-bottom: 28px;
   animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.5s both;
 }
 
@@ -221,33 +227,33 @@ html, body {
   font-size: clamp(40px, 5vw, 72px);
   font-weight: 700;
   letter-spacing: clamp(4px, 1vw, 10px);
-  color: #0F1A2E;
+  color: #FFFFFF;
   line-height: 1.05; margin-bottom: 4px;
   animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.6s both;
 }
 .cover-t1 em {
   font-style: normal; font-weight: 800;
-  color: #4A8FD4;
+  color: #7EC8FF;
 }
 
 .cover-t2 {
   font-size: clamp(16px, 2vw, 28px);
   font-weight: 200;
   letter-spacing: clamp(8px, 1.5vw, 16px);
-  color: #3A5070; margin-bottom: 28px;
+  color: rgba(200,225,255,0.85); margin-bottom: 28px;
   animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.7s both;
 }
 
 .cover-hr {
   width: 64px; height: 1px; margin-bottom: 32px;
-  background: linear-gradient(90deg, #4A8FD4, #7080C8, transparent);
-  opacity: 0.5;
+  background: linear-gradient(90deg, #7EC8FF, #B0A0FF, transparent);
+  opacity: 0.7;
   animation: fadeUp 0.8s 0.78s both;
 }
 
 .cover-t3 {
   font-size: 9px; font-weight: 500; letter-spacing: 4px;
-  color: #7A90AA; margin-bottom: 0;
+  color: rgba(180,210,255,0.75); margin-bottom: 0;
   animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.85s both;
 }
 
@@ -276,34 +282,34 @@ html, body {
   font-size: 11px; font-weight: 800; letter-spacing: 3px;
   min-width: 30px;
 }
-.cstat.ms .cstat-abbr { color: #4A8FD4; }
-.cstat.cr .cstat-abbr { color: #B85870; }
-.cstat.sr .cstat-abbr { color: #3DAF80; }
+.cstat.ms .cstat-abbr { color: #7EC8FF; }
+.cstat.cr .cstat-abbr { color: #FF8FAA; }
+.cstat.sr .cstat-abbr { color: #7FD4A8; }
 .cstat-bar-wrap {
-  flex: 1; height: 2px; background: rgba(74,143,212,0.12); border-radius: 1px; overflow: hidden;
+  flex: 1; height: 2px; background: rgba(255,255,255,0.1); border-radius: 1px; overflow: hidden;
 }
 .cstat-bar {
   height: 100%; border-radius: 1px;
   transition: width 1.2s cubic-bezier(0.23,1,0.32,1);
 }
-.cstat.ms .cstat-bar { width: 60%; background: #4A8FD4; box-shadow: 0 0 8px #4A8FD4; }
-.cstat.cr .cstat-bar { width: 0%;  background: #B85870; box-shadow: 0 0 8px #B85870; }
-.cstat.sr .cstat-bar { width: 20%; background: #3DAF80; box-shadow: 0 0 8px #3DAF80; }
+.cstat.ms .cstat-bar { width: 60%; background: #7EC8FF; box-shadow: 0 0 8px #7EC8FF; }
+.cstat.cr .cstat-bar { width: 0%;  background: #FF8FAA; box-shadow: 0 0 8px #FF8FAA; }
+.cstat.sr .cstat-bar { width: 20%; background: #7FD4A8; box-shadow: 0 0 8px #7FD4A8; }
 .cstat-full {
   font-size: 8px; font-weight: 600; letter-spacing: 1px;
-  color: #7A8EA8; min-width: 120px;
+  color: rgba(180,210,255,0.6); min-width: 120px;
 }
 
 /* 시작 버튼 */
 .cover-btn {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 14px 36px; width: fit-content;
-  background: rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.15);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(74,143,212,0.22);
+  border: 1px solid rgba(140,200,255,0.45);
   border-radius: 4px; cursor: pointer;
   font-family: var(--font-main); font-size: 11px; font-weight: 700;
-  letter-spacing: 4px; color: #1A2C44;
+  letter-spacing: 4px; color: #FFFFFF;
   position: relative; overflow: hidden;
   transition: all 0.3s cubic-bezier(0.23,1,0.32,1);
   animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 1.05s both;
@@ -314,15 +320,15 @@ html, body {
   opacity: 0; transition: opacity 0.2s;
 }
 .cover-btn:hover {
-  border-color: rgba(74,143,212,0.55);
-  color: #4A8FD4;
-  background: rgba(255,255,255,0.8);
-  box-shadow: 0 8px 28px rgba(74,143,212,0.14);
+  border-color: rgba(140,200,255,0.85);
+  color: #7EC8FF;
+  background: rgba(255,255,255,0.22);
+  box-shadow: 0 8px 28px rgba(74,143,212,0.3);
 }
 .cover-btn:hover::before { opacity: 1; }
 .cover-btn-dot {
   width: 5px; height: 5px; border-radius: 50%;
-  background: #4A8FD4; flex-shrink: 0;
+  background: #7EC8FF; flex-shrink: 0;
   animation: dotPulse 2s ease-in-out infinite;
 }
 
@@ -331,10 +337,10 @@ html, body {
   position: absolute; bottom: 28px; left: 0; right: 0;
   display: flex; align-items: center; justify-content: center; gap: 16px;
   font-size: 8px; font-weight: 600; letter-spacing: 2.5px;
-  color: rgba(60,90,130,0.35); z-index: 10;
+  color: rgba(180,210,255,0.45); z-index: 10;
   animation: fadeUp 0.8s 1.3s both;
 }
-.cf-bar { width: 1px; height: 9px; background: rgba(74,143,212,0.2); }
+.cf-bar { width: 1px; height: 9px; background: rgba(140,200,255,0.3); }
 
 /* 전환 */
 @keyframes coverOut {
@@ -1093,6 +1099,11 @@ html, body {
   align-items: stretch;
 }
 
+/* 엔딩 텍스트 가독성 — 영상 위 밝은 텍스트 */
+.ending-left, .ending-right {
+  position: relative; z-index: 10;
+}
+
 /* 좌측 — 대형 타이틀 영역 */
 .ending-left {
   width: 52%; flex-shrink: 0;
@@ -1110,7 +1121,7 @@ html, body {
 
 .ending-eyebrow {
   font-size: 10px; font-weight: 700; letter-spacing: 4px;
-  color: rgba(74,143,212,0.55); margin-bottom: 24px;
+  color: rgba(160,200,255,0.75); margin-bottom: 24px;
   animation: endFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s both;
 }
 
@@ -1118,8 +1129,8 @@ html, body {
   width: 72px; height: 72px; border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
   font-size: 36px; margin-bottom: 28px;
-  background: rgba(255,255,255,0.6);
-  border: 1px solid rgba(74,143,212,0.15);
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.25);
   animation: endFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s both;
 }
 
@@ -1127,23 +1138,25 @@ html, body {
   font-size: 72px; font-weight: 800; line-height: 1;
   letter-spacing: -2px; margin-bottom: 16px;
   animation: endFadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.4s both;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.4);
 }.ending-subtitle {
   font-size: 11px; letter-spacing: 4px; font-weight: 600;
-  color: rgba(60,90,130,0.45); margin-bottom: 48px;
+  color: rgba(200,220,255,0.6); margin-bottom: 48px;
   animation: endFadeUp 0.8s 0.5s both;
 }
 
 .ending-divider {
   width: 64px; height: 1px; margin-bottom: 40px;
-  background: currentColor; opacity: 0.18;
+  background: currentColor; opacity: 0.35;
   animation: endFadeUp 0.8s 0.55s both;
 }
 
 .ending-desc {
   font-family: var(--font-story);
   font-size: 15px; line-height: 2.1;
-  color: #3A4A5C; max-width: 420px;
+  color: rgba(230,240,255,0.9); max-width: 420px;
   animation: endFadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.6s both;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.5);
 }
 
 /* 우측 — 스탯 + 버튼 영역 */
@@ -1157,7 +1170,7 @@ html, body {
 
 .ending-log-tag {
   font-size: 9px; font-weight: 700; letter-spacing: 3px;
-  color: rgba(255,255,255,0.2); margin-bottom: 32px;
+  color: rgba(200,220,255,0.5); margin-bottom: 32px;
   animation: endFadeUp 0.8s 0.65s both;
 }
 
@@ -1171,7 +1184,7 @@ html, body {
   min-width: 30px;
 }
 .ending-stat-bar-wrap {
-  flex: 1; height: 2px; background: rgba(74,143,212,0.1); border-radius: 1px; overflow: hidden;
+  flex: 1; height: 2px; background: rgba(255,255,255,0.12); border-radius: 1px; overflow: hidden;
 }
 .ending-stat-bar {
   height: 100%; border-radius: 1px;
@@ -1180,24 +1193,25 @@ html, body {
 }
 .ending-stat-val {
   font-size: 14px; font-weight: 700; min-width: 32px; text-align: right;
-  color: #4A5568;
+  color: rgba(220,235,255,0.85);
 }
 
 .ending-score {
   font-size: 32px; font-weight: 800; letter-spacing: 2px;
   margin-bottom: 48px;
   animation: endFadeUp 0.8s 0.85s both;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.4);
 }
 
 .restart-btn {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 14px 36px; width: fit-content;
-  background: rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.15);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(74,143,212,0.22);
+  border: 1px solid rgba(140,200,255,0.45);
   border-radius: 4px; cursor: pointer;
   font-family: var(--font-main); font-size: 11px; font-weight: 700;
-  letter-spacing: 4px; color: #1A2C44;
+  letter-spacing: 4px; color: #FFFFFF;
   transition: all 0.3s cubic-bezier(0.23,1,0.32,1);
   animation: endFadeUp 0.8s 0.95s both;
   position: relative; overflow: hidden;
@@ -1208,10 +1222,10 @@ html, body {
   opacity: 0; transition: opacity 0.2s;
 }
 .restart-btn:hover {
-  border-color: rgba(74,143,212,0.55);
-  color: #4A8FD4;
-  background: rgba(255,255,255,0.8);
-  box-shadow: 0 8px 28px rgba(74,143,212,0.14);
+  border-color: rgba(140,200,255,0.85);
+  color: #7EC8FF;
+  background: rgba(255,255,255,0.22);
+  box-shadow: 0 8px 28px rgba(74,143,212,0.3);
 }
 .restart-btn:hover::before { opacity: 1; }
 
@@ -1323,7 +1337,16 @@ html, body {
 <!-- ═══════════ COVER SCREEN ═══════════ -->
 <div id="title-screen">
 
-  <canvas id="cover-bg-canvas"></canvas>
+  <!-- 표지 배경 영상 -->
+  <video id="cover-video" autoplay loop muted playsinline
+    style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none;">
+    <source src="Video/cover.mp4" type="video/mp4">
+  </video>
+  <!-- 영상 위 오버레이 (기존 텍스트/UI 가독성 유지) -->
+  <div style="position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(135deg,rgba(15,25,45,0.45) 0%,rgba(20,35,60,0.30) 50%,rgba(10,20,40,0.40) 100%);"></div>
+
+  <canvas id="cover-bg-canvas" style="display:none;"></canvas>
   <div class="c-orb c-orb-1"></div>
   <div class="c-orb c-orb-2"></div>
   <div class="c-orb c-orb-3"></div>
@@ -1392,61 +1415,34 @@ html, body {
 <!-- 커버 캔버스 & 버튼 이벤트 — DOM 생성 후 실행 -->
 <script>
 (function(){
-  const cv = document.getElementById('cover-bg-canvas');
-  if (!cv) return;
-  const ctx = cv.getContext('2d');
-  let W, H, pts = [], segs = [];
-
-  function resize() {
-    W = cv.width  = window.innerWidth;
-    H = cv.height = window.innerHeight;
-  }
-  function init() {
-    pts = []; segs = [];
-    const cols = ['74,143,212','112,128,200','61,175,128'];
-    for (let i = 0; i < 14; i++) {
-      segs.push({ y: Math.random()*H, x: Math.random()*W,
-        len: 80+Math.random()*180, speed: 0.25+Math.random()*0.55,
-        alpha: 0.04+Math.random()*0.07, col: cols[Math.floor(Math.random()*cols.length)] });
-    }
-    for (let i = 0; i < 55; i++) {
-      pts.push({ x: Math.random()*W, y: Math.random()*H,
-        r: 0.4+Math.random()*1.3, vy: -(0.08+Math.random()*0.25),
-        vx: (Math.random()-0.5)*0.12, a: 0.04+Math.random()*0.14,
-        da: 0.001+Math.random()*0.002, dir: Math.random()<0.5?1:-1 });
-    }
-  }
-  function draw() {
-    ctx.clearRect(0,0,W,H);
-    ctx.strokeStyle='rgba(74,143,212,0.06)'; ctx.lineWidth=1;
-    for(let x=0;x<W;x+=72){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
-    for(let y=0;y<H;y+=72){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
-    segs.forEach(s=>{
-      s.x+=s.speed; if(s.x>W+s.len) s.x=-s.len;
-      const g=ctx.createLinearGradient(s.x,0,s.x+s.len,0);
-      g.addColorStop(0,`rgba(${s.col},0)`); g.addColorStop(0.35,`rgba(${s.col},${s.alpha})`);
-      g.addColorStop(0.65,`rgba(${s.col},${s.alpha*1.4})`); g.addColorStop(1,`rgba(${s.col},0)`);
-      ctx.beginPath(); ctx.strokeStyle=g; ctx.lineWidth=1;
-      ctx.moveTo(s.x,s.y); ctx.lineTo(s.x+s.len,s.y); ctx.stroke();
-    });
-    pts.forEach(p=>{
-      p.x+=p.vx; p.y+=p.vy; p.a+=p.da*p.dir;
-      if(p.a>0.22||p.a<0.03) p.dir*=-1;
-      if(p.y<-8){p.y=H+8;p.x=Math.random()*W;}
-      ctx.save(); ctx.globalAlpha=p.a; ctx.fillStyle='rgba(61,126,204,1)';
-      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); ctx.restore();
-    });
-    requestAnimationFrame(draw);
-  }
-  window.addEventListener('resize',()=>{resize();init();});
-  resize(); init(); draw();
+  /* 커버 영상이 있으므로 canvas 드로잉 생략 */
 
   /* 버튼: startGame은 페이지 하단 <script>에 정의되므로 window.startGame 참조 */
   document.getElementById('cover-start-btn').addEventListener('click', function(){
     const ts = document.getElementById('title-screen');
     ts.classList.add('cover-exit');
+    /* 커버 영상 정지 */
+    const cv = document.getElementById('cover-video');
+    if (cv) { cv.pause(); }
+    /* 커버 BGM 페이드 아웃 */
+    if (window.AudioMgr) AudioMgr.stopAll();
     setTimeout(function(){ window.startGame(); }, 540);
   });
+
+  /* 커버 BGM 자동 재생 — 브라우저 정책상 사용자 첫 클릭 후 재생 */
+  (function tryCoverBGM() {
+    if (window.AudioMgr) {
+      AudioMgr.playCoverBGM();
+    } else {
+      setTimeout(tryCoverBGM, 200);
+    }
+  })();
+
+  /* 커버 BGM: 사용자 첫 인터랙션 후 재시도 (브라우저 autoplay 정책 대응) */
+  document.addEventListener('click', function onFirstClick() {
+    if (window.AudioMgr) AudioMgr.playCoverBGM();
+    document.removeEventListener('click', onFirstClick);
+  }, { once: true });
 })();
 </script>
 
@@ -1541,12 +1537,22 @@ html, body {
         <div class="stage-visual-area">
           <canvas id="visual-canvas"></canvas>
 
+          <!-- 씬 영상들 (S1~S8) -->
+          <video id="s1-video" autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;display:none;"><source src="Video/S1.mp4" type="video/mp4"></video>
+          <video id="s2-video" autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;display:none;"><source src="Video/S2.mp4" type="video/mp4"></video>
+          <video id="s3-video" autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;display:none;"><source src="Video/S3.mp4" type="video/mp4"></video>
+          <video id="s4-video" autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;display:none;"><source src="Video/S4.mp4" type="video/mp4"></video>
+          <video id="s5-video" autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;display:none;"><source src="Video/S5.mp4" type="video/mp4"></video>
+          <video id="s6-video" autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;display:none;"><source src="Video/S6.mp4" type="video/mp4"></video>
+          <video id="s7-video" autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;display:none;"><source src="Video/S7.mp4" type="video/mp4"></video>
+          <video id="s8-video" autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;display:none;"><source src="Video/S8.mp4" type="video/mp4"></video>
+
           <!-- 코너 정보 -->
           <div class="stage-corner tl" id="stage-corner-cam">🎥 CAM_H77</div>
           <div class="stage-corner tr" id="stage-corner-sig">신호 ●●●○</div>
 
           <!-- 플레이스홀더 -->
-          <div class="stage-placeholder">
+          <div class="stage-placeholder" id="stage-placeholder">
             <div class="placeholder-frame">
               <div class="placeholder-icon">🎑</div>
               <div class="placeholder-title">SCENE IMAGE PLACEHOLDER</div>
@@ -1644,7 +1650,14 @@ html, body {
 <!-- ═══════════ 엔딩 스크린 ═══════════ -->
 <div id="ending-screen">
   <div id="ending-bg-overlay"></div>
-  <canvas id="ending-particle-canvas" style="position:fixed;inset:0;z-index:2;pointer-events:none;display:none;"></canvas>
+  <!-- 엔딩 배경 영상: revolution=END_A, hidden=END_B, true_end=END_C, bad=GAMEOVER -->
+  <video id="ending-video-revolution" autoplay loop muted playsinline style="position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;display:none;"><source src="Video/END_A.mp4"    type="video/mp4"></video>
+  <video id="ending-video-hidden"     autoplay loop muted playsinline style="position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;display:none;"><source src="Video/END_B.mp4"    type="video/mp4"></video>
+  <video id="ending-video-true"       autoplay loop muted playsinline style="position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;display:none;"><source src="Video/END_C.mp4"    type="video/mp4"></video>
+  <video id="ending-video-bad"        autoplay loop muted playsinline style="position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;display:none;"><source src="Video/GAMEOVER.mp4" type="video/mp4"></video>
+  <!-- 엔딩 영상 위 오버레이 -->
+  <div id="ending-video-overlay" style="position:fixed;inset:0;z-index:2;pointer-events:none;display:none;background:rgba(5,10,20,0.55);"></div>
+  <canvas id="ending-particle-canvas" style="position:fixed;inset:0;z-index:3;pointer-events:none;display:none;"></canvas>
   <div class="ending-wrap">
     <div class="ending-left">
       <div class="ending-eyebrow">// MEMORY FRACTURE — FINAL LOG</div>
@@ -1684,6 +1697,137 @@ html, body {
    흥부와 놀부 : 기억의 균열 — 메인 JS
    기존 게임 로직 완전 보존 + 새 UI 연동
 ═══════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   AudioManager — BGM + TTS 통합 제어
+   볼륨 설계: COVER BGM 100% / 씬 BGM 35% TTS 100%
+              END_A BGM 45% / END_B 50% / END_C 55% / GAMEOVER 25%
+═══════════════════════════════════════════════════════════ */
+const AudioMgr = (() => {
+  let bgm = null;       // 현재 BGM Audio 객체
+  let tts = null;       // 현재 TTS Audio 객체
+  let bgmFadeRAF = null;
+
+  /* 볼륨 페이드 헬퍼 */
+  function fadeTo(audio, targetVol, durationMs, onDone) {
+    if (!audio) { if (onDone) onDone(); return; }
+    if (bgmFadeRAF) cancelAnimationFrame(bgmFadeRAF);
+    const startVol = audio.volume;
+    const startTime = performance.now();
+    function step(now) {
+      const t = Math.min((now - startTime) / durationMs, 1);
+      audio.volume = startVol + (targetVol - startVol) * t;
+      if (t < 1) { bgmFadeRAF = requestAnimationFrame(step); }
+      else { audio.volume = targetVol; if (onDone) onDone(); }
+    }
+    bgmFadeRAF = requestAnimationFrame(step);
+  }
+
+  /* BGM 교체 (페이드 아웃 → 교체 → 페이드 인) */
+  function playBGM(src, targetVol, fadeDuration = 800) {
+    const prev = bgm;
+    const next = new Audio(src);
+    next.loop = true;
+    next.volume = 0;
+    next.play().catch(() => {});
+    bgm = next;
+    if (prev) {
+      fadeTo(prev, 0, fadeDuration / 2, () => { prev.pause(); prev.src = ''; });
+    }
+    fadeTo(next, targetVol, fadeDuration);
+  }
+
+  /* TTS 재생 (1회, 100% 볼륨) */
+  function playTTS(src) {
+    if (tts) { tts.pause(); tts.src = ''; tts = null; }
+    const a = new Audio(src);
+    a.volume = 1.0;
+    a.play().catch(() => {});
+    tts = a;
+  }
+
+  /* TTS 정지 */
+  function stopTTS() {
+    if (tts) { tts.pause(); tts.src = ''; tts = null; }
+  }
+
+  /* 전체 정지 */
+  function stopAll() {
+    if (bgm) { fadeTo(bgm, 0, 400, () => { bgm.pause(); bgm.src = ''; bgm = null; }); }
+    stopTTS();
+  }
+
+  /* 씬별 BGM 파일명 매핑 */
+  const BGM_MAP = {
+    COVER:      { src: 'Sound/COVER.mp3',    vol: 1.00 },
+    S1:         { src: 'Sound/S1.mp3',       vol: 0.35 },
+    S2:         { src: 'Sound/S2.mp3',       vol: 0.35 },
+    S3:         { src: 'Sound/S3.mp3',       vol: 0.35 },
+    S4:         { src: 'Sound/S4.mp3',       vol: 0.35 },
+    S4_RETRY:   { src: 'Sound/S4.mp3',       vol: 0.35 },
+    CHECK_SR:   { src: 'Sound/S4.mp3',       vol: 0.35 },
+    S5:         { src: 'Sound/S5.mp3',       vol: 0.35 },
+    CHECK_CR:   { src: 'Sound/S5.mp3',       vol: 0.35 },
+    S5_BLOCKED: { src: 'Sound/S5.mp3',       vol: 0.35 },
+    S6:         { src: 'Sound/S6.mp3',       vol: 0.35 },
+    S7:         { src: 'Sound/S7.mp3',       vol: 0.35 },
+    CHECK_ENTER:{ src: 'Sound/S7.mp3',       vol: 0.35 },
+    S7_FAIL:    { src: 'Sound/S7.mp3',       vol: 0.35 },
+    S8:         { src: 'Sound/S8.mp3',       vol: 0.35 },
+    revolution: { src: 'Sound/END_A.mp3',    vol: 0.45 },
+    hidden:     { src: 'Sound/END_B.mp3',    vol: 0.50 },
+    true_end:   { src: 'Sound/END_C.mp3',    vol: 0.55 },
+    bad:        { src: 'Sound/GAMEOVER.mp3', vol: 0.25 },
+  };
+
+  /* TTS 파일명 매핑 */
+  const TTS_MAP = {
+    S1: 'TTS/S1_voice.mp3',
+    S2: 'TTS/S2_voice.mp3',
+    S3: 'TTS/S3_voice.mp3',
+    S4: 'TTS/S4_voice.mp3',
+    S5: 'TTS/S5_voice.mp3',
+    S6: 'TTS/S6_voice.mp3',
+    S7: 'TTS/S7_voice.mp3',
+    S8: 'TTS/S8_voice.mp3',
+    revolution: 'TTS/END_A_voice.mp3',
+    hidden:     'TTS/END_B_voice.mp3',
+    true_end:   'TTS/END_C_voice.mp3',
+    bad:        'TTS/GAMEOVER_voice.mp3',
+  };
+
+  /* 현재 재생 중인 BGM src 추적 (중복 재생 방지) */
+  let currentBGMSrc = '';
+
+  /* 씬 진입 시 호출 */
+  function enterScene(sceneId) {
+    const bg = BGM_MAP[sceneId];
+    if (bg && bg.src !== currentBGMSrc) {
+      currentBGMSrc = bg.src;
+      playBGM(bg.src, bg.vol);
+    }
+    const ttsSrc = TTS_MAP[sceneId];
+    if (ttsSrc) playTTS(ttsSrc);
+  }
+
+  /* 엔딩 진입 시 호출 */
+  function enterEnding(endKey) {
+    currentBGMSrc = '';
+    const bg = BGM_MAP[endKey];
+    if (bg) playBGM(bg.src, bg.vol, 1200);
+    const ttsSrc = TTS_MAP[endKey];
+    if (ttsSrc) setTimeout(() => playTTS(ttsSrc), 600);
+  }
+
+  /* 커버 BGM */
+  function playCoverBGM() {
+    currentBGMSrc = '';
+    playBGM('Sound/COVER.mp3', 1.0, 600);
+  }
+
+  return { enterScene, enterEnding, playCoverBGM, stopAll, stopTTS, playBGM };
+})();
+
+
 
 /* ─── 시계 ─── */
 setInterval(() => {
@@ -1798,6 +1942,14 @@ const SCENE_DATA = {
   CHECK_SR: { icon:'🔍', label:'SR 동기화 분석',            sub:'▸ 동기화 검증 진행 중',                color:'#B8A4FF', ticker:'동기화율 확인 · 보안 우회 분석 · 경로 계획 · 데이터 처리', cam:'CAM_SEC', sig:'신호 ●●●○', id:'FEED_04', sceneId:'SR ANALYSIS' },
 };
 
+/* 씬 영상 ID 매핑 */
+const SCENE_VIDEO_MAP = {
+  S1: 's1-video', S2: 's2-video', S3: 's3-video', S4: 's4-video',
+  S5: 's5-video', S6: 's6-video', S7: 's7-video', S8: 's8-video',
+  S4_RETRY: 's4-video', CHECK_CR: 's5-video', S5_BLOCKED: 's5-video',
+  CHECK_ENTER: 's7-video', S7_FAIL: 's7-video', CHECK_SR: 's4-video',
+};
+
 function updateSceneVisuals(sceneId) {
   const d = SCENE_DATA[sceneId] || SCENE_DATA['S1'];
   visualColor = d.color;
@@ -1811,13 +1963,29 @@ function updateSceneVisuals(sceneId) {
   if ($('stage-corner-id'))    $('stage-corner-id').textContent = d.id;
   if ($('stage-scene-id'))     $('stage-scene-id').textContent = d.sceneId;
   if ($('slot-label'))         { $('slot-label').style.color = d.color; }
+
+  /* 씬 영상 전환 */
+  const targetVideoId = SCENE_VIDEO_MAP[sceneId] || null;
+  const placeholder = $('stage-placeholder');
+  ['s1-video','s2-video','s3-video','s4-video','s5-video','s6-video','s7-video','s8-video'].forEach(vid => {
+    const el = $(vid);
+    if (!el) return;
+    if (vid === targetVideoId) {
+      el.style.display = 'block';
+      el.play().catch(() => {});
+    } else {
+      el.style.display = 'none';
+      el.pause();
+    }
+  });
+  if (placeholder) placeholder.style.display = targetVideoId ? 'none' : 'flex';
 }
 
 /* ═══ 게임 STATE (원본 완전 보존) ═══ */
 const state = {
   MS: 60, CR: 0, SR: 20,
   currentScene: 'S1', loopCount: 0,
-  capsuleUsed: false, log: [],
+  capsuleUsed: false, s8choice: null, log: [],
   typing: false, typingTimer: null
 };
 
@@ -2007,8 +2175,8 @@ const scenes = {
 
 <span class="neon-highlight">"그래서 뭐가 어쨌다고, 형."</span> 놀부가 0.3초 멈춘다.`,
     choices: [
-      { key: 'A', label: '저항한다', desc: '"설계된 자유여도 — 내 선택이다."', effects: { MS: +10, CR: -5, SR: 0 }, next: 'ENDING', log: '저항 — 자아 수호' },
-      { key: 'B', label: '시스템에 편입한다', desc: '"가짜 자유보다 확실한 힘을 택한다."', effects: { MS: -15, CR: +20, SR: +10 }, next: 'ENDING', log: '편입 — 자아 소멸' }
+      { key: 'A', label: '저항한다', desc: '"설계된 자유여도 — 내 선택이다."', effects: { MS: +10, CR: -5, SR: 0 }, next: 'ENDING', log: '저항 — 자아 수호', action: () => { state.s8choice = 'resist'; } },
+      { key: 'B', label: '시스템에 편입한다', desc: '"가짜 자유보다 확실한 힘을 택한다."', effects: { MS: -15, CR: +20, SR: +10 }, next: 'ENDING', log: '편입 — 자아 소멸', action: () => { state.s8choice = 'merge'; } }
     ]
   },
 
@@ -2018,25 +2186,25 @@ const scenes = {
 
 /* ═══ ENDINGS ═══ */
 const endings = {
-  human: {
-    title: '인간 엔딩', color: '#4A8FD4', icon: '🌱',
-    sub: 'MEMORY RESOLUTION — IDENTITY PRESERVED',
-    desc: `기억이 가짜여도, 내가 느낀 건 진짜였다.\n\n흥부는 타워를 떠났다. 시스템 밖.\n슬럼의 노파가 그의 이름을 기억한다.\nDRONE-7이 여전히 곁에 있다.\n\n그것으로 충분하다.`
+  revolution: {
+    title: '혁명가 엔딩', color: '#F97316', icon: '🔥',
+    sub: 'SYSTEM COLLAPSE — THE LEGEND BEGINS',
+    desc: `흥부는 방아쇠를 당겼다.\n\n메가코프의 타워가 무너진다.\n도시는 처음으로 숨을 쉰다.\n\n하지만 흥부는 돌아오지 않는다.\n그는 전설이 되었다.`
   },
-  monster: {
-    title: '괴물 엔딩', color: '#B85870', icon: '◼',
-    sub: 'CORRUPTION COMPLETE — IDENTITY ERASED',
-    desc: `오염은 조용히 완성됐다.\n\n흥부는 놀부의 가장 충실한 집행자가 되었다.\nH-77 골목의 노파를 기억하지 못한다.\n기억하려 하지 않는다.\n\n그게 더 효율적이니까.`
+  hidden: {
+    title: '숨겨진 엔딩', color: '#A855F7', icon: '◈',
+    sub: 'CITY RESTORED — BUT SOMETHING REMAINS',
+    desc: `도시는 회복됐다. 사람들은 다시 웃는다.\n\n그러나 어딘가, 네트워크 심층부에\n새로운 기억 코어의 신호가 깜박인다.\n\n이것이 끝인가, 시작인가.\n아직 아무도 모른다.`
   },
-  system: {
-    title: '시스템 엔딩', color: '#7080C8', icon: '⬡',
-    sub: 'SYNC COMPLETE — DISSOLVED INTO NETWORK',
-    desc: `흥부는 사라지지 않았다. 더 커졌다.\n\n의식은 네트워크에 용해되었다.\n개인으로서의 흥부는 없다.\n\n하지만 시스템 어딘가,\n슬럼의 기억이 흐르고 있다.`
+  true_end: {
+    title: '가족 엔딩', color: '#3DAF80', icon: '🌿',
+    sub: 'TRUE ENDING — MEMORY RESTORED · FAMILY REUNITED',
+    desc: `아이가 눈을 떴다.\n\n기억이 돌아왔다. 가족이 손을 잡는다.\n흥부는 처음으로 울었다.\n\n도시는 희망을 되찾았다.\n이것이 진짜 끝이다.`
   },
-  collapse: {
-    title: '붕괴 엔딩', color: '#6B7A8D', icon: '✕',
-    sub: 'SYSTEM FAILURE — FILE DELETED',
-    desc: `기억도. 자아도. 이름도.\n모두 지워졌다.\n\n메가코프 데이터베이스에서\n흥부의 파일이 삭제된다.\n\n오류 코드 하나만 남는다.`
+  bad: {
+    title: '배드 엔딩', color: '#6B7A8D', icon: '✕',
+    sub: 'MEMORY DELETED — IDENTITY ERASED',
+    desc: `흥부의 신호가 끊겼다.\n\n기억 복구 실패.\n메가코프 데이터베이스에서\n파일 ID 흥부 — 삭제 완료.\n\n도시는 오늘도 돌아간다.`
   }
 };
 
@@ -2196,6 +2364,8 @@ function renderScene(sceneId) {
     if (next === 'SHOW_ENDING') { showEnding(); return; }
     setTimeout(() => renderScene(next), 100); return;
   }
+  /* 오디오: 씬 BGM + TTS 동시 재생 */
+  AudioMgr.enterScene(sceneId);
   triggerChoiceVeil(false);
   document.getElementById('hud-scene').textContent = scene.hudText || sceneId;
   const charData = scene.char;
@@ -2277,14 +2447,27 @@ function handleChoice(choice, btnEl) {
 
 /* showEnding */
 function showEnding() {
-  let endKey; const score = state.MS + state.SR - state.CR;
-  if (state.MS <= 20) endKey = 'collapse';
-  else if (state.CR >= 70) endKey = 'monster';
-  else if (state.SR >= 70) endKey = 'system';
-  else if (state.MS >= 50 && state.CR <= 40) endKey = 'human';
-  else if (score >= 60) endKey = 'human';
-  else if (state.CR > state.MS) endKey = 'monster';
-  else endKey = 'system';
+  let endKey;
+  const score = state.MS + state.SR - state.CR;
+  // S8 선택 결과(state.s8choice)와 수치 기반 분기
+  // bad: MS가 매우 낮거나 CR이 극도로 높음
+  if (state.MS <= 20 || state.CR >= 80) {
+    endKey = 'bad';
+  } else if (state.s8choice === 'resist') {
+    // 저항 선택 → MS·SR 높으면 true_end, 아니면 revolution
+    if (state.MS >= 50 && state.CR <= 35) endKey = 'true_end';
+    else endKey = 'revolution';
+  } else if (state.s8choice === 'merge') {
+    // 편입 선택 → SR 높으면 hidden, CR 높으면 bad
+    if (state.CR >= 60) endKey = 'bad';
+    else endKey = 'hidden';
+  } else {
+    // fallback
+    if (score >= 70) endKey = 'true_end';
+    else if (score >= 30) endKey = 'revolution';
+    else if (state.SR >= 60) endKey = 'hidden';
+    else endKey = 'bad';
+  }
   const e = endings[endKey];
 
   /* DOM 업데이트 */
@@ -2303,6 +2486,9 @@ function showEnding() {
   });
 
   addLog(`엔딩 판정: ${e.title}`, 'neutral');
+
+  /* 오디오: 엔딩 BGM + TTS */
+  AudioMgr.enterEnding(endKey);
 
   /* 앱 fade out → 엔딩 진입 */
   const app = document.getElementById('app');
@@ -2332,6 +2518,18 @@ function showEnding() {
     }, 600);
 
     startEndingParticles(e.color, endKey);
+
+    /* 엔딩 영상 재생 */
+    const endVideoMap = { revolution: 'ending-video-revolution', hidden: 'ending-video-hidden', true_end: 'ending-video-true', bad: 'ending-video-bad' };
+    const endVidId = endVideoMap[endKey] || 'ending-video-collapse';
+    ['ending-video-revolution','ending-video-hidden','ending-video-true','ending-video-bad'].forEach(vid => {
+      const el = document.getElementById(vid);
+      if (!el) return;
+      if (vid === endVidId) { el.style.display = 'block'; el.play().catch(() => {}); }
+      else { el.style.display = 'none'; el.pause(); }
+    });
+    const evo = document.getElementById('ending-video-overlay');
+    if (evo) evo.style.display = 'block';
   }, 580);
 }
 
@@ -2391,29 +2589,61 @@ function startGame() {
   if (ts) ts.style.display = 'none';
   document.getElementById('app').style.display = 'flex';
   initVisualCanvas();
-  renderScene('S1');
+  renderScene('S1');  /* renderScene 내부에서 AudioMgr.enterScene('S1') 호출됨 */
   addLog('H-77 구역 — 기억의 균열이 시작된다', 'good');
 }
 window.startGame = startGame;
 
 function restartGame() {
+  /* ── 오디오 전체 정지 ── */
+  AudioMgr.stopAll();
+
+  /* ── 파티클 정지 ── */
   if (endingParticleRAF) { cancelAnimationFrame(endingParticleRAF); endingParticleRAF = null; }
   const canvas = document.getElementById('ending-particle-canvas');
   if (canvas) canvas.style.display = 'none';
+
+  /* ── 상태 초기화 ── */
   state.MS = 60; state.CR = 0; state.SR = 20;
   state.currentScene = 'S1'; state.loopCount = 0;
-  state.capsuleUsed = false; state.log = [];
+  state.capsuleUsed = false; state.s8choice = null; state.log = [];
   state.typing = false;
   if (state.typingTimer) clearTimeout(state.typingTimer);
   document.getElementById('log-list').innerHTML = '';
   const clcBody = document.getElementById('choice-log-body');
   if (clcBody) clcBody.innerHTML = `<div class="clc-empty"><span class="clc-empty-icon">🌱</span>아직 선택하지 않았습니다.<br>선택지를 골라보세요.</div>`;
+
+  /* ── 엔딩 화면 숨김 ── */
   document.getElementById('ending-screen').style.display = 'none';
-  document.getElementById('app').style.display = 'flex';
+  ['ending-video-revolution','ending-video-hidden','ending-video-true','ending-video-bad'].forEach(vid => {
+    const el = document.getElementById(vid);
+    if (el) { el.style.display = 'none'; el.pause(); }
+  });
+  const evo = document.getElementById('ending-video-overlay');
+  if (evo) evo.style.display = 'none';
+
+  /* ── 씬 영상 전체 정지 ── */
+  ['s1-video','s2-video','s3-video','s4-video','s5-video','s6-video','s7-video','s8-video'].forEach(vid => {
+    const el = document.getElementById(vid);
+    if (el) { el.style.display = 'none'; el.pause(); }
+  });
+  const ph = document.getElementById('stage-placeholder');
+  if (ph) ph.style.display = 'flex';
+
+  /* ── 앱 숨김 → COVER 표시 ── */
+  document.getElementById('app').style.display = 'none';
+  const ts = document.getElementById('title-screen');
+  if (ts) {
+    ts.style.display = 'flex';
+    ts.style.opacity = '1';
+    ts.classList.remove('cover-exit');
+    /* 커버 영상 재생 */
+    const cv = document.getElementById('cover-video');
+    if (cv) { cv.currentTime = 0; cv.play().catch(() => {}); }
+    /* 커버 BGM 재생 */
+    AudioMgr.playCoverBGM();
+  }
   triggerChoiceVeil(false);
-  renderScene('S1');
-  addLog('게임 재시작', 'good');
-  showActionMsg('▶ 시스템 재부팅', 'data');
 }
 
 /* 키보드 단축키 */
